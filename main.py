@@ -52,8 +52,21 @@ def get_skin_color_from_face(image_path):
     # Find the average color of the skin
     mean_color = cv2.mean(face_region, mask=skin_mask)[:3]
     
+    # Calculate the most frequent (mode) color in the skin region
+    # Reshape the skin region to a 2D array of pixels
+    pixels = skin[skin_mask > 0].reshape(-1, 3)
+    
+    # Find the mode of the pixels (most frequent color)
+    mode_color = np.array([np.bincount(pixels[:, i]).argmax() for i in range(3)])
+    
+    # Find the midpoint between mean and mode colors
+    midpoint_color = ((mean_color + mode_color) / 2).astype(int)
+    
     # Convert RGB to HEX
-    hex_color = '#{:02x}{:02x}{:02x}'.format(int(mean_color[0]), int(mean_color[1]), int(mean_color[2]))
+    hex_color = '#{:02x}{:02x}{:02x}'.format(midpoint_color[0], midpoint_color[1], midpoint_color[2])
+    
+    # Convert RGB to HEX
+    #hex_color = '#{:02x}{:02x}{:02x}'.format(int(mean_color[0]), int(mean_color[1]), int(mean_color[2]))
 
     return hex_color, image_rgb, (x, y, w, h), face_region, skin_mask, skin
 
