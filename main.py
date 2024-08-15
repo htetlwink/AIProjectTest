@@ -62,10 +62,13 @@ def get_skin_color_from_face(image_path):
     # Find the midpoint between mean and mode colors
     midpoint_color = ((mean_color + mode_color) / 2).astype(int)
     
-    # Convert RGB to HEX
-    hex_color = '#{:02x}{:02x}{:02x}'.format(midpoint_color[0], midpoint_color[1], midpoint_color[2])
+    # MODE Color Convert RGB to HEX
+    hex_color = '#{:02x}{:02x}{:02x}'.format(mode_color[0], mode_color[1], mode_color[2])
+
+    # MIDPOINT COLOR Convert RGB to HEX
+    #hex_color = '#{:02x}{:02x}{:02x}'.format(midpoint_color[0], midpoint_color[1], midpoint_color[2])
     
-    # Convert RGB to HEX
+    # MEAN COLOR Convert RGB to HEX
     #hex_color = '#{:02x}{:02x}{:02x}'.format(int(mean_color[0]), int(mean_color[1]), int(mean_color[2]))
 
     return hex_color, image_rgb, (x, y, w, h), face_region, skin_mask, skin
