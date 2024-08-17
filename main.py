@@ -75,7 +75,10 @@ def get_skin_color_from_face(image_path):
     # MEAN COLOR Convert RGB to HEX
     #hex_color = '#{:02x}{:02x}{:02x}'.format(int(mean_color[0]), int(mean_color[1]), int(mean_color[2]))
 
-    return hex_color, image_rgb, (x, y, w, h), face_region, skin_mask, skin
+    #Assign RGB Color code
+    rgbcolor = mode_color
+
+    return hex_color, image_rgb, (x, y, w, h), face_region, skin_mask, skin, rgbcolor
 
 if image_file is not None:
     
@@ -89,7 +92,7 @@ if image_file is not None:
 
         clearbtm = st.button("Clear Data")        
         try:
-            skin_hex, image_rgb, face_rect, face_region, skin_mask, skin_region = get_skin_color_from_face(temp_file_path)
+            skin_hex, image_rgb, face_rect, face_region, skin_mask, skin_region, rgbcolor = get_skin_color_from_face(temp_file_path)
             st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
         <p style="color:white; text-align:center;">This is your color tone {skin_hex}!</p></div>""", unsafe_allow_html=True)
             st.markdown("---")
@@ -108,6 +111,8 @@ if image_file is not None:
             st.image(skin_region, caption="Skin Region")
             st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
         <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
+            st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
+        <p style="color:white; text-align:center;">R:{rgbcolor[0]}, G:{rgbcolor[1]}, B:{rgbcolor[2]}</p></div>""", unsafe_allow_html=True)
         except ValueError as e:
             st.error(str(e))
         finally:
