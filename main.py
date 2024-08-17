@@ -81,41 +81,46 @@ def get_skin_color_from_face(image_path):
     return hex_color, image_rgb, (x, y, w, h), face_region, skin_mask, skin, rgbcolor
 
 if image_file is not None:
+
+    userskintype = st.selectbox("Select your skin type", options=("---","Oily","Dry","Sensitive","Combination"))
+    print(userskintype)
     
-    # Save the uploaded image to a temporary file
-    with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-        temp_file.write(image_file.read())
-        temp_file_path = temp_file.name
-                
-    submitbtm = st.button("Start Analyze")
-    if submitbtm:
+    if userskintype != "---":
+            
+        # Save the uploaded image to a temporary file
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            temp_file.write(image_file.read())
+            temp_file_path = temp_file.name
+                    
+        submitbtm = st.button("Start Analyze")
+        if submitbtm:
 
-        clearbtm = st.button("Clear Data")        
-        try:
-            skin_hex, image_rgb, face_rect, face_region, skin_mask, skin_region, rgbcolor = get_skin_color_from_face(temp_file_path)
-            st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
-        <p style="color:white; text-align:center;">This is your color tone {skin_hex}!</p></div>""", unsafe_allow_html=True)
-            st.markdown("---")
-            # Display images
-            st.image(image_rgb, caption="Original Image")
-            st.markdown("---")
-            x, y, w, h = face_rect
-            cv2.rectangle(image_rgb, (x, y), (x+w, y+h), (0, 255, 0), 2)
-            st.image(image_rgb, caption="Detected Face")
-            st.markdown("---")
+            clearbtm = st.button("Clear Data")        
+            try:
+                skin_hex, image_rgb, face_rect, face_region, skin_mask, skin_region, rgbcolor = get_skin_color_from_face(temp_file_path)
+                st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
+            <p style="color:white; text-align:center;">This is your color tone {skin_hex}!</p></div>""", unsafe_allow_html=True)
+                st.markdown("---")
+                # Display images
+                st.image(image_rgb, caption="Original Image")
+                st.markdown("---")
+                x, y, w, h = face_rect
+                cv2.rectangle(image_rgb, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                st.image(image_rgb, caption="Detected Face")
+                st.markdown("---")
 
-            st.image(face_region, caption="Face Region")
-            st.markdown("---")
-            st.image(skin_mask, caption="Skin Mask")
-            st.markdown("---")
-            st.image(skin_region, caption="Skin Region")
-            st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
-        <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
-            st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
-        <p style="color:white; text-align:center;">R:{rgbcolor[0]}, G:{rgbcolor[1]}, B:{rgbcolor[2]}</p></div>""", unsafe_allow_html=True)
-        except ValueError as e:
-            st.error(str(e))
-        finally:
-            os.remove(temp_file_path)
-        if clearbtm:
-            image_file is None
+                st.image(face_region, caption="Face Region")
+                st.markdown("---")
+                st.image(skin_mask, caption="Skin Mask")
+                st.markdown("---")
+                st.image(skin_region, caption="Skin Region")
+                st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
+            <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
+                st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
+            <p style="color:white; text-align:center;">R:{rgbcolor[0]}, G:{rgbcolor[1]}, B:{rgbcolor[2]}</p></div>""", unsafe_allow_html=True)
+            except ValueError as e:
+                st.error(str(e))
+            finally:
+                os.remove(temp_file_path)
+            if clearbtm:
+                image_file is None
