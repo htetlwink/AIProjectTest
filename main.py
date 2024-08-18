@@ -14,6 +14,7 @@ st.markdown(f"""<div style="background-color:red; padding: 10px; border-radius: 
         <p style="color:white; text-align:center;">Upload photo က 2MB ထပ်ကျော်ရင် server down ပါတယ် </p></div>""", unsafe_allow_html=True)
 st.markdown("---")
 image_file = st.file_uploader("Upload Your Selfie to Color Check", type=["jpg", "png", "jpeg"])
+st.markdown("<h6 style='text-align: center;'>Disclaimer: We do not store personal data and your picture only valid in this particular instance</h6>", unsafe_allow_html=True)
 
 def get_skin_color_from_face(image_path):
     # Load the image
