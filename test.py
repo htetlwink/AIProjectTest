@@ -1,13 +1,13 @@
 import streamlit as st
 import cv2
 import numpy as np
-from PIL import Image
+#from PIL import Image
 import tempfile
 import os
-#import model
-import pandas as pd
-import tensorflow as tf
+#import pandas as pd
+#import tensorflow as tf
 import pickle
+from sklearn.preprocessing import LabelEncoder
 
 st.set_page_config(page_title="Skin Color Checker", page_icon="📷")
 st.markdown("<h1 style='text-align: center;'>Skin Color Checker?</h1>", unsafe_allow_html=True)
@@ -20,21 +20,25 @@ st.markdown("---")
 image_file = st.file_uploader("Upload Your Selfie to Color Check", type=["jpg", "png", "jpeg"])
 st.markdown("<h6 style='text-align: center;'>Disclaimer: We do not store personal data and your picture only valid in this particular instance</h6>", unsafe_allow_html=True)
 
+
 def UseTheModel(SkinType,R,G,B):
 
     #Load the Model File
-    with open("model/Trained_model.pkl", 'rb') as file:
-        model = pickle.load(file)
+    with open("model/Trained_model.pkl", 'rb') as modelfile:
+        model = pickle.load(modelfile)
         print("Model Loaded Successfully !")
 
     #Load the Encoder File
-    with open('model/Skin_Type_encoder.pkl', 'rb') as file:
-        le = pickle.load(file)
-
+    
+    with open('model/Skin_Type_encoder.pkl', 'rb') as encodefile:
+        le = pickle.load(encodefile)
+        print("Label Encoder Loaded Successfully !")
+    
     UserData = np.array([[SkinType,R,G,B]])
     prediction = model.predict(UserData)
     makeuptype = le.inverse_transform(prediction)
-    return print(f"You Should Use {makeuptype}")
+    print(f"You Should Use {makeuptype}")
+    return makeuptype
 
 
 
@@ -141,6 +145,17 @@ if image_file is not None:
             <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
                 st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
             <p style="color:white; text-align:center;">R:{rgbcolor[0]}, G:{rgbcolor[1]}, B:{rgbcolor[2]}</p></div>""", unsafe_allow_html=True)
+                
+                try:
+                        
+                    with open('model/Skin_Type_encoder.pkl', 'rb') as encodefile:
+                        le = pickle.load(encodefile)
+                        SkinTran = userskintype
+                except Exception as e:
+                    print(f"Exception as {e}")
+
+                userskintype = le.transform([SkinTran])
+                print(userskintype)
 
                 makeupshade = UseTheModel(userskintype,rgbcolor[0],rgbcolor[1],rgbcolor[2])
                 st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
