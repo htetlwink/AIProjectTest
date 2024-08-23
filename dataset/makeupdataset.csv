@@ -1,31 +1,173 @@
-Skin_Type,HEX_Value,R,G,B,MakeUp_Shade
-Dry,#FFE0BD,255,224,189,Pale
-Combination,#FFCD94,255,205,148,Natural
-Oily,#EAC086,234,192,134,Golden
-Sensitive,#8D5524,141,85,36,Mocha
-Sensitive,#FFD1BB,255,209,187,Pale
-Dry,#F5C89D,245,200,157,Natural
-Combination,#D2A679,210,166,121,Golden
-Oily,#7D3A0B,125,58,11,Mocha
-Oily,#FFCCBB,255,204,187,Pale
-Sensitive,#E8AE76,232,174,118,Natural
-Dry,#C68642,198,134,66,Golden
-Combination,#6F4E37,111,78,55,Mocha
-Combination,#FBE8D3,251,232,211,Pale
-Oily,#F7BEA7,247,190,167,Natural
-Sensitive,#D6A463,214,164,99,Golden
-Dry,#5D3A29,93,58,41,Mocha
-Dry,#FCE4EC,252,228,236,Pale
-Combination,#F4B642,244,182,66,Natural
-Oily,#B57B29,181,123,41,Golden
-Sensitive,#4B3A24,75,58,36,Mocha
-Sensitive,#F9D8D2,249,216,210,Pale
-Dry,#F4A300,244,163,0,Natural
-Combination,#D4A64A,212,166,74,Golden
-Oily,#7D3F2F,125,63,47,Mocha
-Oily,#FFE6D3,255,230,211,Pale
-Sensitive,#F5B89A,245,184,154,Natural
-Dry,#D1A065,209,160,101,Golden
-Combination,#5F3B2E,95,59,46,Mocha
-Combination,#FCE6D3,252,230,211,Pale
-Oily,#F5C09C,245,192,156,Natural
+Hex_Code,R,G,B,Core_Skin_Type,Skin_Type,Core_Color,Foundation_Color,Blush_Color,Lipstick_Color,Eyeshadow_Color,Highlighter_Color,Contour_Color
+#FFFAFA,255,250,250,Oily,Oily,Pale,Alabaster,Soft Pink,Nude Pink,Champagne,Pearl,Soft Taupe
+#FFF0E1,255,240,225,Dry,Dry,Pale,Porcelain,Light Pink,Nude Pink,Champagne,Pearl,Soft Taupe
+#FAE7D3,250,231,211,Combination,Combination,Pale,Ivory,Pale Pink,Soft Coral,Soft Gold,Soft Gold,Soft Taupe
+#F0D5BE,240,213,190,Sensitive,Sensitive,Pale,Light Beige,Soft Coral,Soft Coral,Soft Gold,Soft Gold,Warm Beige
+#D8B998,216,185,152,Combination,Normal,Natural,Warm Beige,Peach,Soft Coral,Soft Gold,Soft Gold,Warm Beige
+#C9A882,201,168,130,Oily,Acne-Prone,Golden,Golden Beige,Coral,Soft Coral,Bronze,Champagne Gold,Warm Beige
+#C4A484,196,164,132,Dry,Aging,Natural,Sand,Warm Pink,Classic Red,Bronze,Champagne Gold,Warm Beige
+#B8860B,184,134,11,Dry,Dehydrated,Natural,Olive,Terracotta,Classic Red,Copper,Champagne Gold,Rich Bronze
+#B3816A,179,129,106,Dry,Hyperpigmented,Natural,Honey,Deep Coral,Deep Berry,Copper,Warm Bronze,Deep Brown
+#A57C55,165,124,85,Dry,Dull,Natural,Warm Caramel,Warm Brown,Deep Berry,Deep Brown,Warm Bronze,Deep Brown
+#A67B5B,166,123,91,Sensitive,Redness-Prone,Natural,Caramel,Warm Bronze,Warm Rose,Warm Bronze,Champagne Gold,Deep Brown
+#8E583E,142,88,62,Oily,Acne-Prone,Natural,Chestnut,Burgundy,Deep Rose,Deep Brown,Golden Bronze,Dark Chocolate
+#734A31,115,74,49,Dry,Mature,Mocha,Deep Mocha,Deep Rose,Rich Burgundy,Warm Bronze,Deep Gold,Dark Chocolate
+#4B3621,75,54,33,Sensitive,Sensitive,Mocha,Espresso,Dark Berry,Deep Red,Deep Brown,Deep Gold,Dark Chocolate
+#3E2723,62,39,35,Dry,Aging,Mocha,Mahogany,Dark Plum,Burgundy,Deep Brown,Golden Bronze,Dark Chocolate
+#2C1608,44,22,8,Oily,Oily,Mocha,Ebony,Warm Burgundy,Dark Plum,Warm Bronze,Golden Bronze,Dark Chocolate
+#1C0B06,28,11,6,Dry,Dehydrated,Mocha,Deep Ebony,Deep Red,Dark Berry,Warm Bronze,Deep Gold,Dark Chocolate
+#C9A882,201,168,130,Combination,Normal,Golden,Golden Beige,Warm Peach,Coral,Soft Gold,Champagne Gold,Rich Bronze
+#B3816A,179,129,106,Dry,Dry,Natural,Honey,Deep Coral,Deep Rose,Warm Bronze,Soft Gold,Warm Bronze
+#B8860B,184,134,11,Oily,Oily,Natural,Olive,Terracotta,Deep Berry,Bronze,Champagne Gold,Deep Brown
+#FFF5EE,255,245,238,Dry,Dry,Pale,Fair,Light Peach,Soft Pink,Soft Gold,Soft Gold,Warm Beige
+#FFDAB9,255,218,185,Dry,Dry,Pale,Peach,Soft Coral,Light Pink,Champagne,Pearl,Soft Taupe
+#FFD700,255,215,0,Oily,Oily,Pale,Light Tan,Warm Pink,Coral,Bronze,Champagne Gold,Warm Beige
+#D2B48C,210,180,140,Combination,Combination,Natural,Tan,Coral,Peach,Copper,Soft Gold,Warm Beige
+#F5F5DC,245,245,220,Sensitive,Sensitive,Natural,Medium Beige,Soft Pink,Nude Pink,Champagne,Pearl,Soft Taupe
+#E0CDA9,224,205,169,Oily,Acne-Prone,Natural,Almond,Warm Coral,Soft Coral,Soft Gold,Champagne Gold,Warm Beige
+#C19A6B,193,154,107,Dry,Aging,Natural,Caramel Tan,Warm Brown,Classic Red,Bronze,Champagne Gold,Warm Beige
+#BC8F8F,188,143,143,Dry,Dehydrated,Pale,Light Olive,Terracotta,Classic Red,Copper,Champagne Gold,Rich Bronze
+#DAA520,218,165,32,Dry,Hyperpigmented,Natural,Dark Honey,Deep Coral,Deep Berry,Copper,Warm Bronze,Deep Brown
+#A0522D,160,82,45,Dry,Dull,Mocha,Dark Caramel,Warm Brown,Deep Berry,Deep Brown,Warm Bronze,Deep Brown
+#8B4513,139,69,19,Sensitive,Redness-Prone,Natural,Dark Chestnut,Warm Bronze,Warm Rose,Warm Bronze,Champagne Gold,Deep Brown
+#CD853F,205,133,63,Oily,Acne-Prone,Natural,Deep Almond,Burgundy,Deep Rose,Deep Brown,Golden Bronze,Dark Chocolate
+#8B0000,139,0,0,Dry,Mature,Mocha,Mocha,Deep Rose,Rich Burgundy,Warm Bronze,Deep Gold,Dark Chocolate
+#6F4E37,111,78,55,Sensitive,Sensitive,Mocha,Coffee,Dark Berry,Deep Red,Deep Brown,Deep Gold,Dark Chocolate
+#654321,101,67,33,Dry,Aging,Mocha,Dark Mahogany,Dark Plum,Burgundy,Deep Brown,Golden Bronze,Dark Chocolate
+#3C2F2F,60,47,47,Oily,Oily,Mocha,Deep Coffee,Warm Burgundy,Dark Plum,Warm Bronze,Golden Bronze,Dark Chocolate
+#3B2F2F,59,47,47,Dry,Dehydrated,Mocha,Dark Chocolate,Deep Red,Dark Berry,Warm Bronze,Deep Gold,Dark Chocolate
+#8C7853,140,120,83,Dry,Hyperpigmented,Mocha,Bronze,Warm Peach,Coral,Soft Gold,Champagne Gold,Rich Bronze
+#3B5323,59,83,35,Combination,Normal,Mocha,Dark Olive,Deep Coral,Deep Rose,Warm Bronze,Soft Gold,Warm Bronze
+#756D54,117,109,84,Sensitive,Sensitive,Natural,Warm Almond,Terracotta,Deep Berry,Bronze,Champagne Gold,Deep Brown
+#F3E2C7,243,226,199,Oily,Oily,Pale,Fair,Soft Peach,Light Coral,Champagne,Soft Gold,Soft Taupe
+#F5D8B8,245,216,184,Dry,Dry,Pale,Light,Soft Pink,Nude Pink,Soft Beige,Pearl,Light Taupe
+#E6B098,230,176,152,Combination,Combination,Natural,Beige,Peach,Soft Coral,Soft Gold,Warm Gold,Medium Brown
+#D1A684,209,166,132,Sensitive,Sensitive,Natural,Medium Beige,Peach Coral,Soft Coral,Warm Beige,Warm Champagne,Medium Brown
+#C08E62,192,142,98,Combination,Normal,Natural,Tan,Warm Peach,Warm Coral,Warm Gold,Soft Gold,Medium Brown
+#A67B5B,166,123,91,Oily,Acne-Prone,Natural,Caramel,Warm Coral,Soft Coral,Warm Bronze,Warm Champagne,Warm Brown
+#855A4C,133,90,76,Dry,Aging,Natural,Toffee,Rich Berry,Deep Plum,Deep Brown,Golden Bronze,Warm Brown
+#6B443B,107,68,59,Dry,Dehydrated,Mocha,Cocoa,Warm Rose,Deep Rose,Deep Bronze,Deep Gold,Deep Brown
+#5D3A2D,93,58,45,Dry,Hyperpigmented,Natural,Nutmeg,Deep Coral,Deep Berry,Deep Copper,Golden Bronze,Deep Brown
+#482A1D,72,42,29,Dry,Dull,Natural,Cinnamon,Warm Brown,Deep Berry,Warm Bronze,Warm Gold,Dark Brown
+#3D2A1E,61,42,30,Sensitive,Redness-Prone,Mocha,Warm Mocha,Warm Bronze,Deep Rose,Deep Brown,Champagne Gold,Dark Brown
+#4B3621,75,54,33,Oily,Acne-Prone,Mocha,Espresso,Dark Berry,Deep Red,Warm Bronze,Golden Bronze,Dark Chocolate
+#3E2723,62,39,35,Dry,Mature,Mocha,Chocolate,Deep Rose,Rich Burgundy,Deep Brown,Deep Gold,Dark Chocolate
+#2B1A0E,43,26,14,Sensitive,Sensitive,Mocha,Deep Walnut,Dark Plum,Burgundy,Warm Bronze,Golden Bronze,Dark Chocolate
+#B3816A,179,129,106,Dry,Hyperpigmented,Natural,Honey Almond,Warm Peach,Coral,Soft Gold,Champagne Gold,Rich Bronze
+#8E583E,142,88,62,Combination,Normal,Natural,Deep Honey,Warm Coral,Deep Rose,Warm Bronze,Soft Gold,Warm Bronze
+#B8860B,184,134,11,Sensitive,Sensitive,Natural,Olive Tan,Terracotta,Deep Berry,Bronze,Champagne Gold,Deep Brown
+#FFF0DB,255,240,219,Combination,Normal,Pale,Light Porcelain,Soft Pink,Peach Nude,Soft Gold,Pearl,Soft Taupe
+#FFDAB9,255,218,185,Dry,Dry,Pale,Peach,Light Coral,Nude Peach,Soft Beige,Pearl,Soft Taupe
+#FAD7C2,250,215,194,Oily,Oily,Natural,Warm Ivory,Pale Pink,Soft Coral,Champagne,Soft Gold,Warm Beige
+#F4D4A7,244,212,167,Combination,Combination,Pale,Light Sand,Peach,Soft Coral,Soft Gold,Warm Champagne,Warm Beige
+#D2B48C,210,180,140,Sensitive,Sensitive,Natural,Medium Tan,Soft Coral,Coral Nude,Warm Beige,Soft Gold,Warm Beige
+#C5A77D,197,167,125,Oily,Acne-Prone,Golden,Golden Tan,Warm Peach,Coral Pink,Warm Gold,Champagne Gold,Warm Beige
+#B58360,181,131,96,Dry,Aging,Natural,Warm Honey,Rich Peach,Coral Pink,Bronze,Warm Champagne,Medium Brown
+#A6663A,166,102,58,Dry,Dehydrated,Golden,Amber,Terracotta,Warm Rose,Warm Bronze,Deep Gold,Warm Brown
+#865C3A,134,92,58,Dry,Hyperpigmented,Mocha,Mocha,Deep Coral,Deep Red,Deep Bronze,Golden Bronze,Warm Brown
+#704430,112,68,48,Dry,Dull,Natural,Deep Sable,Warm Brown,Deep Red,Deep Brown,Warm Gold,Deep Brown
+#8E583E,142,88,62,Sensitive,Redness-Prone,Natural,Chestnut,Burgundy,Deep Rose,Deep Brown,Golden Bronze,Dark Chocolate
+#5B3A29,91,58,41,Oily,Acne-Prone,Mocha,Mahogany,Deep Rose,Deep Burgundy,Warm Bronze,Golden Bronze,Dark Chocolate
+#4A3128,74,49,40,Dry,Mature,Mocha,Rich Cocoa,Deep Rose,Deep Red,Deep Brown,Deep Gold,Dark Chocolate
+#3A221A,58,34,26,Sensitive,Sensitive,Mocha,Dark Walnut,Deep Plum,Burgundy,Warm Bronze,Golden Bronze,Dark Chocolate
+#2D150B,45,21,11,Dry,Aging,Mocha,Ebony Brown,Dark Plum,Burgundy,Deep Brown,Golden Bronze,Dark Chocolate
+#261511,38,21,17,Oily,Oily,Mocha,Black Cherry,Warm Burgundy,Deep Plum,Warm Bronze,Golden Bronze,Dark Chocolate
+#1B0E06,27,14,6,Dry,Dehydrated,Mocha,Deep Espresso,Deep Red,Dark Berry,Warm Bronze,Deep Gold,Dark Chocolate
+#8B5A2B,139,90,43,Dry,Hyperpigmented,Natural,Dark Honey,Warm Peach,Coral,Soft Gold,Champagne Gold,Rich Bronze
+#7C4A23,124,74,35,Combination,Normal,Natural,Maple,Warm Coral,Deep Rose,Warm Bronze,Soft Gold,Warm Bronze
+#7E3E29,126,62,41,Sensitive,Sensitive,Natural,Russet,Terracotta,Deep Berry,Bronze,Champagne Gold,Deep Brown
+#A57947,165,121,71,Combination,Combination,Natural,Honey Bronze,Warm Peach,Soft Coral,Soft Gold,Warm Champagne,Warm Beige
+#A67A5B,166,122,91,Dry,Dull,Natural,Tawny,Warm Brown,Deep Berry,Warm Bronze,Warm Gold,Dark Brown
+#4D2C23,77,44,35,Oily,Acne-Prone,Natural,Cinnamon,Deep Coral,Deep Rose,Warm Bronze,Golden Bronze,Dark Chocolate
+#3B1D16,59,29,22,Dry,Dehydrated,Mocha,Deep Maple,Terracotta,Warm Rose,Deep Brown,Deep Gold,Deep Brown
+#6E2C00,110,44,0,Combination,Normal,Mocha,Warm Mahogany,Warm Coral,Coral Nude,Warm Gold,Soft Gold,Warm Brown
+#9C6B30,156,107,48,Dry,Hyperpigmented,Golden,Golden Almond,Warm Coral,Coral Pink,Warm Bronze,Warm Gold,Warm Brown
+#502419,80,36,25,Sensitive,Sensitive,Mocha,Mocha Brown,Warm Rose,Deep Red,Deep Brown,Golden Bronze,Deep Brown
+#3A1E15,58,30,21,Dry,Aging,Mocha,Cool Espresso,Dark Berry,Deep Plum,Warm Bronze,Golden Bronze,Dark Chocolate
+#5A2C15,90,44,21,Oily,Oily,Mocha,Dark Caramel,Warm Burgundy,Deep Red,Warm Bronze,Golden Bronze,Dark Chocolate
+#1F0A06,31,10,6,Dry,Dehydrated,Mocha,Cool Ebony,Deep Red,Dark Berry,Warm Bronze,Deep Gold,Dark Chocolate
+#FFEFDB,255,239,219,Combination,Normal,Pale,Fair Ivory,Soft Pink,Nude Peach,Soft Beige,Pearl,Soft Taupe
+#F5E0C7,245,224,199,Dry,Dry,Pale,Light Beige,Light Coral,Nude Peach,Soft Champagne,Pearl,Soft Taupe
+#F7D7B4,247,215,180,Oily,Oily,Golden,Warm Vanilla,Pale Pink,Soft Coral,Champagne,Soft Gold,Warm Beige
+#E1C4A8,225,196,168,Combination,Combination,Natural,Almond Beige,Peach,Soft Coral,Soft Gold,Warm Champagne,Warm Beige
+#D7B49B,215,180,155,Sensitive,Sensitive,Natural,Honey Beige,Soft Coral,Coral Nude,Warm Beige,Soft Gold,Warm Beige
+#CBB292,203,178,146,Oily,Acne-Prone,Natural,Sandy Beige,Warm Peach,Coral Pink,Warm Gold,Champagne Gold,Warm Beige
+#B68D58,182,141,88,Dry,Aging,Natural,Caramel,Rich Peach,Coral Pink,Bronze,Warm Champagne,Medium Brown
+#A47C51,164,124,81,Dry,Dehydrated,Natural,Tan Bronze,Terracotta,Warm Rose,Warm Bronze,Deep Gold,Warm Brown
+#92694C,146,105,76,Dry,Hyperpigmented,Golden,Golden Caramel,Deep Coral,Deep Red,Deep Bronze,Golden Bronze,Warm Brown
+#866141,134,97,65,Dry,Dull,Mocha,Tawny Beige,Warm Brown,Deep Red,Deep Brown,Warm Gold,Deep Brown
+#928C5D,146,140,93,Sensitive,Redness-Prone,Natural,Olive,Burgundy,Deep Rose,Warm Bronze,Golden Bronze,Dark Chocolate
+#80755C,128,117,92,Oily,Acne-Prone,Mocha,Deep Olive,Deep Rose,Deep Burgundy,Warm Bronze,Golden Bronze,Dark Chocolate
+#6F4E37,111,78,55,Dry,Mature,Mocha,Cocoa Bean,Deep Rose,Deep Red,Deep Brown,Deep Gold,Dark Chocolate
+#5C4033,92,64,51,Sensitive,Sensitive,Mocha,Rich Walnut,Deep Plum,Burgundy,Warm Bronze,Golden Bronze,Dark Chocolate
+#4B302B,75,48,43,Dry,Aging,Mocha,Espresso,Dark Plum,Burgundy,Deep Brown,Golden Bronze,Dark Chocolate
+#4E312D,78,49,45,Oily,Oily,Mocha,Mocha Latte,Warm Burgundy,Deep Plum,Warm Bronze,Golden Bronze,Dark Chocolate
+#4A3831,74,56,49,Dry,Dehydrated,Mocha,Chocolate Brown,Deep Red,Dark Berry,Warm Bronze,Deep Gold,Dark Chocolate
+#3D261F,61,38,31,Dry,Hyperpigmented,Golden,Golden Cocoa,Warm Peach,Coral,Soft Gold,Champagne Gold,Rich Bronze
+#342522,52,37,34,Combination,Normal,Mocha,Deep Maple,Warm Coral,Deep Rose,Warm Bronze,Soft Gold,Warm Bronze
+#2A1D1B,42,29,27,Sensitive,Sensitive,Mocha,Ebony,Terracotta,Deep Berry,Bronze,Champagne Gold,Deep Brown
+#1E1A1B,30,26,27,Combination,Combination,Mocha,Coffee Bean,Warm Peach,Soft Coral,Soft Gold,Warm Champagne,Warm Beige
+#2E2420,46,36,32,Dry,Dull,Mocha,Deep Mocha,Warm Brown,Deep Berry,Warm Bronze,Warm Gold,Dark Brown
+#4A342E,74,52,46,Oily,Acne-Prone,Mocha,Rosewood,Deep Coral,Deep Rose,Warm Bronze,Golden Bronze,Dark Chocolate
+#3B1F21,59,31,33,Dry,Dehydrated,Mocha,Deep Rosewood,Terracotta,Warm Rose,Deep Brown,Deep Gold,Deep Brown
+#5A3525,90,53,37,Combination,Normal,Mocha,Cool Mahogany,Warm Coral,Coral Nude,Warm Gold,Soft Gold,Warm Brown
+#68452B,104,69,43,Dry,Hyperpigmented,Golden,Golden Chestnut,Warm Coral,Coral Pink,Warm Bronze,Warm Gold,Warm Brown
+#A0663C,160,102,60,Sensitive,Sensitive,Mocha,Sandalwood,Warm Rose,Deep Red,Deep Brown,Golden Bronze,Deep Brown
+#6D4C41,109,76,65,Dry,Aging,Mocha,Deep Walnut,Dark Berry,Deep Plum,Warm Bronze,Golden Bronze,Dark Chocolate
+#8A4F2A,138,79,42,Oily,Oily,Mocha,Deep Chestnut,Warm Burgundy,Deep Red,Warm Bronze,Golden Bronze,Dark Chocolate
+#3B1A19,59,26,25,Dry,Dehydrated,Natural,Deep Sable,Deep Red,Dark Berry,Warm Bronze,Deep Gold,Dark Chocolate
+#FDF4E3,253,244,227,Sensitive,Sensitive,Pale,Porcelain,Soft Pink,Nude Peach,Soft Champagne,Pearl,Soft Taupe
+#F8E8DA,248,232,218,Dry,Dry,Pale,Light Porcelain,Light Coral,Nude Rose,Soft Beige,Pearl,Soft Taupe
+#FAE5D3,250,229,211,Combination,Normal,Pale,Ivory,Soft Peach,Light Pink,Soft Gold,Pearl,Soft Taupe
+#F4E0C9,244,224,201,Combination,Combination,Pale,Light Ivory,Warm Peach,Soft Coral,Warm Beige,Soft Gold,Warm Beige
+#EBDCC3,235,220,195,Dry,Dehydrated,Pale,Cool Sand,Soft Coral,Nude Peach,Soft Gold,Pearl,Warm Beige
+#F5DEB3,245,222,179,Oily,Oily,Pale,Light Sand,Soft Peach,Nude Rose,Soft Bronze,Soft Gold,Warm Beige
+#FFDAB9,255,218,185,Dry,Hyperpigmented,Pale,Peach,Warm Coral,Coral Pink,Warm Beige,Warm Champagne,Warm Brown
+#FFDAB8,255,218,184,Sensitive,Redness-Prone,Natural,Warm Peach,Warm Coral,Warm Rose,Warm Gold,Soft Gold,Warm Brown
+#ECD6BD,236,214,189,Dry,Mature,Pale,Light Almond,Soft Peach,Warm Nude,Warm Gold,Soft Gold,Warm Beige
+#F5E1C7,245,225,199,Oily,Acne-Prone,Natural,Beige,Warm Coral,Warm Pink,Warm Gold,Champagne Gold,Warm Beige
+#FFE4C4,255,228,196,Dry,Aging,Natural,Warm Ivory,Warm Peach,Soft Rose,Warm Bronze,Warm Champagne,Medium Brown
+#D5C3B5,213,195,181,Sensitive,Sensitive,Natural,Cool Beige,Soft Peach,Nude Pink,Warm Bronze,Soft Gold,Soft Taupe
+#CCB29F,204,178,159,Oily,Oily,Pale,Light Bronze,Soft Peach,Nude Rose,Soft Bronze,Soft Gold,Warm Beige
+#D2B48C,210,180,140,Combination,Combination,Natural,Warm Beige,Warm Coral,Soft Coral,Warm Bronze,Soft Gold,Warm Beige
+#DAB892,218,184,146,Dry,Dry,Golden,Golden Beige,Warm Peach,Nude Rose,Soft Gold,Warm Champagne,Warm Beige
+#CDA971,205,169,113,Combination,Normal,Golden,Amber,Soft Coral,Coral Pink,Warm Gold,Pearl,Warm Brown
+#CCAA6B,204,170,107,Dry,Hyperpigmented,Golden,Golden Amber,Warm Coral,Warm Rose,Warm Bronze,Warm Champagne,Warm Brown
+#B77A5D,183,122,93,Dry,Dehydrated,Mocha,Mocha,Warm Peach,Deep Rose,Warm Bronze,Warm Gold,Warm Brown
+#8B4513,139,69,19,Sensitive,Sensitive,Mocha,Cool Mocha,Warm Peach,Deep Rose,Warm Bronze,Golden Bronze,Dark Chocolate
+#6F4E37,111,78,55,Combination,Combination,Mocha,Deep Mocha,Warm Rose,Deep Red,Deep Bronze,Deep Gold,Dark Chocolate
+#8B4513,139,69,19,Oily,Acne-Prone,Mocha,Cool Caramel,Warm Peach,Deep Rose,Warm Bronze,Golden Bronze,Dark Chocolate
+#A97142,169,113,66,Dry,Aging,Golden,Golden Caramel,Warm Coral,Deep Red,Warm Bronze,Golden Bronze,Warm Brown
+#7B3F00,123,63,0,Dry,Dehydrated,Mocha,Rich Caramel,Deep Coral,Deep Red,Deep Bronze,Golden Bronze,Dark Chocolate
+#A52A2A,165,42,42,Sensitive,Sensitive,Mocha,Cool Bronze,Deep Coral,Deep Red,Deep Bronze,Golden Bronze,Dark Chocolate
+#8B0000,139,0,0,Sensitive,Redness-Prone,Mocha,Warm Bronze,Deep Coral,Deep Rose,Deep Bronze,Warm Gold,Dark Chocolate
+#4B0082,75,0,130,Oily,Acne-Prone,Mocha,Cool Ebony,Deep Rose,Deep Burgundy,Deep Brown,Deep Gold,Dark Chocolate
+#1F0A06,31,10,6,Dry,Dehydrated,Mocha,Deep Ebony,Deep Red,Dark Berry,Warm Bronze,Deep Gold,Dark Chocolate
+#3D1F1E,61,31,30,Dry,Dry,Mocha,Deep Cocoa,Deep Berry,Dark Plum,Warm Gold,Deep Bronze,Espresso Brown
+#4E342E,78,52,46,Oily,Oily,Golden,Warm Sienna,Deep Coral,Warm Brick,Warm Copper,Bronze Gold,Warm Brown
+#3B2E2A,59,46,42,Combination,Combination,Mocha,Cool Sienna,Deep Rose,Warm Burgundy,Deep Copper,Bronze Gold,Dark Chocolate
+#382E2C,56,46,44,Sensitive,Sensitive,Mocha,Cool Espresso,Deep Berry,Deep Plum,Deep Copper,Warm Bronze,Espresso Brown
+#4B3621,75,54,33,Dry,Hyperpigmented,Mocha,Warm Espresso,Warm Brick,Deep Red,Deep Gold,Warm Gold,Dark Chocolate
+#3A1A12,58,26,18,Dry,Dehydrated,Mocha,Rich Mahogany,Deep Berry,Dark Wine,Deep Gold,Warm Gold,Dark Chocolate
+#2F1B10,47,27,16,Sensitive,Redness-Prone,Mocha,Warm Mahogany,Deep Rose,Warm Burgundy,Deep Gold,Warm Bronze,Deep Brown
+#2E170B,46,23,11,Dry,Aging,Natural,Deep Almond,Warm Berry,Dark Berry,Deep Copper,Warm Gold,Espresso Brown
+#341B0B,52,27,11,Oily,Acne-Prone,Natural,Cool Almond,Warm Berry,Deep Burgundy,Deep Copper,Bronze Gold,Dark Chocolate
+#2B1D0E,43,29,14,Sensitive,Sensitive,Mocha,Warm Chestnut,Warm Coral,Warm Red,Warm Copper,Bronze Gold,Warm Brown
+#3B1706,59,23,6,Dry,Dry,Mocha,Rich Chestnut,Warm Berry,Dark Plum,Deep Copper,Warm Bronze,Espresso Brown
+#482311,72,35,17,Oily,Oily,Mocha,Cool Chestnut,Warm Berry,Deep Wine,Deep Gold,Warm Gold,Dark Chocolate
+#6A4E42,106,78,66,Combination,Combination,Mocha,Rich Toffee,Warm Coral,Dark Brick,Warm Copper,Bronze Gold,Warm Brown
+#5D4037,93,64,55,Dry,Dehydrated,Natural,Warm Toffee,Warm Peach,Dark Red,Deep Copper,Warm Gold,Espresso Brown
+#654321,101,67,33,Dry,Hyperpigmented,Natural,Rich Honey,Warm Coral,Warm Red,Warm Copper,Warm Gold,Dark Chocolate
+#5E2605,94,38,5,Dry,Aging,Golden,Cool Honey,Warm Rose,Deep Plum,Deep Gold,Bronze Gold,Dark Chocolate
+#593B10,89,59,16,Oily,Acne-Prone,Natural,Deep Honey,Warm Berry,Deep Red,Warm Copper,Warm Bronze,Dark Chocolate
+#4B3621,75,54,33,Sensitive,Sensitive,Mocha,Cool Hazelnut,Warm Coral,Warm Burgundy,Warm Gold,Warm Gold,Espresso Brown
+#7B3F00,123,63,0,Dry,Dry,Golden,Warm Hazelnut,Warm Peach,Deep Red,Warm Copper,Bronze Gold,Dark Chocolate
+#75492E,117,73,46,Oily,Oily,Mocha,Rich Caramel,Deep Coral,Deep Red,Warm Copper,Warm Gold,Espresso Brown
+#5D4037,93,64,55,Combination,Combination,Natural,Deep Caramel,Warm Berry,Deep Plum,Deep Bronze,Bronze Gold,Dark Chocolate
+#4A2510,74,37,16,Dry,Dehydrated,Natural,Cool Maple,Deep Berry,Dark Plum,Deep Bronze,Warm Gold,Dark Chocolate
+#3B1F1A,59,31,26,Dry,Hyperpigmented,Natural,Warm Maple,Deep Rose,Dark Wine,Deep Copper,Bronze Gold,Dark Chocolate
+#321414,50,20,20,Sensitive,Redness-Prone,Mocha,Rich Ebony,Warm Coral,Dark Red,Deep Bronze,Warm Bronze,Dark Chocolate
+#21100B,33,16,11,Dry,Aging,Mocha,Deep Ebony,Deep Berry,Dark Wine,Deep Gold,Warm Gold,Dark Chocolate
+#170E0A,23,14,10,Oily,Acne-Prone,Mocha,Warm Ebony,Warm Red,Deep Red,Deep Bronze,Bronze Gold,Dark Chocolate
+#1F0A06,31,10,6,Sensitive,Sensitive,Mocha,Cool Ebony,Warm Coral,Dark Plum,Warm Gold,Warm Gold,Dark Chocolate
+#3B1706,59,23,6,Dry,Dry,Mocha,Warm Cocoa,Warm Peach,Deep Red,Warm Copper,Bronze Gold,Espresso Brown
