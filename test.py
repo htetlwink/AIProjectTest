@@ -173,8 +173,11 @@ if image_file is not None:
 
                 st.subheader('You Should Use This MakeUp Color')
                 CoreColor_Suggest = np.array(['Pale','Natural','Golden','Mocha'])
-                st.write(CoreColor_Suggest[prediction])
                 
+                st.write(CoreColor_Suggest[prediction][0])
+                print(type(CoreColor_Suggest[prediction]))
+                print(type(CoreColor_Suggest[prediction][0]))
+
             except ValueError as e:
                 st.error(str(e))
             finally:
