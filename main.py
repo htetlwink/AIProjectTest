@@ -1,20 +1,12 @@
 import streamlit as st
-import cv2
+import pandas as pd
 import numpy as np
-from PIL import Image
+import pickle
+from sklearn.ensemble import RandomForestClassifier
+import cv2
 import tempfile
 import os
 
-st.set_page_config(page_title="Skin Color Checker", page_icon="📷")
-st.markdown("<h1 style='text-align: center;'>Skin Color Checker?</h1>", unsafe_allow_html=True)
-st.markdown("<h6 style='text-align: center;'>နောက်ခံပြောင်မှာ မျက်နှာ ကို ရှင်းရှင်းလင်းလင်းပေါ်ရင်‌ပိုကောင်းပါတယ်</h6>", unsafe_allow_html=True)
-st.markdown("<h6 style='text-align: center;'>နေရောင်ရှိတဲ့ဘက်မျက်နှာမူပြီးရရိုက်ရင် ပိုကောင်းပါတယ်</h6>", unsafe_allow_html=True)
-st.markdown("---")
-st.markdown(f"""<div style="background-color:red; padding: 10px; border-radius: 1px;">
-        <p style="color:white; text-align:center;">Upload photo က 2MB ထပ်ကျော်ရင် server down ပါတယ် </p></div>""", unsafe_allow_html=True)
-st.markdown("---")
-image_file = st.file_uploader("Upload Your Selfie to Color Check", type=["jpg", "png", "jpeg"])
-st.markdown("<h6 style='text-align: center;'>Disclaimer: We do not store personal data and your picture only valid in this particular instance</h6>", unsafe_allow_html=True)
 
 def get_skin_color_from_face(image_path):
     # Load the image
@@ -81,22 +73,52 @@ def get_skin_color_from_face(image_path):
 
     return hex_color, image_rgb, (x, y, w, h), face_region, skin_mask, skin, rgbcolor
 
+def user_input_features(r,g,b,SkinType):
+                      
+    #island = st.sidebar.selectbox('Island',('Biscoe','Dream','Torgersen'))
+    #sex = st.sidebar.selectbox('Sex',('male','female'))
+    #bill_length_mm = st.sidebar.slider('Bill length (mm)', 32.1,59.6,43.9)
+    #bill_depth_mm = st.sidebar.slider('Bill depth (mm)', 13.1,21.5,17.2)
+    #flipper_length_mm = st.sidebar.slider('Flipper length (mm)', 172.0,231.0,201.0)
+    #body_mass_g = st.sidebar.slider('Body mass (g)', 2700.0,6300.0,4207.0)
+    data = {'R': r,
+            'G': g,
+            'B': b,
+            'Core_Skin_Type': SkinType}
+    features = pd.DataFrame(data, index=[0])
+    return features
+
+
+st.set_page_config(page_title="Skin Color Checker", page_icon="📷")
+st.markdown("<h1 style='text-align: center;'>Skin Color Checker?</h1>", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: center;'>နောက်ခံပြောင်မှာ မျက်နှာ ကို ရှင်းရှင်းလင်းလင်းပေါ်ရင်‌ပိုကောင်းပါတယ်</h6>", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: center;'>နေရောင်ရှိတဲ့ဘက်မျက်နှာမူပြီးရရိုက်ရင် ပိုကောင်းပါတယ်</h6>", unsafe_allow_html=True)
+st.markdown("---")
+st.markdown(f"""<div style="background-color:red; padding: 10px; border-radius: 1px;">
+        <p style="color:white; text-align:center;">Upload photo က 2MB ထပ်ကျော်ရင် server down ပါတယ် </p></div>""", unsafe_allow_html=True)
+st.markdown("---")
+
+image_file = st.file_uploader("Upload Your Selfie to Color Check", type=["jpg", "png", "jpeg"])
+
+st.markdown("<h6 style='text-align: center;'>Disclaimer: We do not store personal data and your picture only valid in this particular instance</h6>", unsafe_allow_html=True)
+
 if image_file is not None:
 
     userskintype = st.selectbox("Select your skin type", options=("---","Oily","Dry","Sensitive","Combination"))
     print(userskintype)
-    
+
     if userskintype != "---":
-            
-        # Save the uploaded image to a temporary file
+
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(image_file.read())
             temp_file_path = temp_file.name
-                    
+
         submitbtm = st.button("Start Analyze")
+        
         if submitbtm:
 
-            clearbtm = st.button("Clear Data")        
+            clearbtm = st.button("Clear Data")
+
             try:
                 skin_hex, image_rgb, face_rect, face_region, skin_mask, skin_region, rgbcolor = get_skin_color_from_face(temp_file_path)
                 st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
@@ -105,6 +127,7 @@ if image_file is not None:
                 # Display images
                 st.image(image_rgb, caption="Original Image")
                 st.markdown("---")
+
                 x, y, w, h = face_rect
                 cv2.rectangle(image_rgb, (x, y), (x+w, y+h), (0, 255, 0), 2)
                 st.image(image_rgb, caption="Detected Face")
@@ -112,13 +135,46 @@ if image_file is not None:
 
                 st.image(face_region, caption="Face Region")
                 st.markdown("---")
+
                 st.image(skin_mask, caption="Skin Mask")
                 st.markdown("---")
+
                 st.image(skin_region, caption="Skin Region")
+                st.markdown("---")
+
                 st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
             <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
                 st.markdown(f"""<div style="background-color:{skin_hex}; padding: 20px; border-radius: 5px;">
             <p style="color:white; text-align:center;">R:{rgbcolor[0]}, G:{rgbcolor[1]}, B:{rgbcolor[2]}</p></div>""", unsafe_allow_html=True)
+                
+                red = rgbcolor[0]
+                green = rgbcolor[1]
+                blue = rgbcolor[2]
+                input_df = user_input_features(red,green,blue,userskintype)
+
+                #Model Releated Section
+                makeupdataset_clean = pd.read_csv("https://raw.githubusercontent.com/htetlwink/AIProjectTest/main/dataset/makeupdatasetclean.csv")
+                makeupdataset = makeupdataset_clean.drop(columns=['Core_Color'])
+                df = pd.concat([input_df,makeupdataset],axis=0)
+                
+                #Encode the skintype
+                encode = ['Core_Skin_Type']
+                for col in encode:
+                    dummy = pd.get_dummies(df[col], prefix=col)
+                    df = pd.concat([df,dummy], axis=1)
+                    del df[col]
+                df = df[:1]
+
+                #Model Loaded
+                load_clf = pickle.load(open('model/TrainedModel.pkl', 'rb'))
+
+                #Model Prediction
+                prediction = load_clf.predict(df)
+
+                st.subheader('You Should Use This MakeUp Color')
+                CoreColor_Suggest = np.array(['Pale','Natural','Golden','Mocha'])
+                st.write(CoreColor_Suggest[prediction])
+                
             except ValueError as e:
                 st.error(str(e))
             finally:
