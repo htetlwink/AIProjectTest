@@ -13,8 +13,23 @@ def db_access(Skin_Type,Skin_Col):
     # Define the scope
     scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
 
+    CRE_dict = {
+  "type": "service_account",
+  "project_id": "aiprojectdatabase-433803",
+  "private_key_id": "24a66978b0cf51999f68af9c3604d867374754ef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1FeUgxYf5VGfG\nLJWd7r8h8hZbB0dU8+gFnN224NUUATM0JuHQcPL2Ci0wcMTZ3gWavBqP5vFpoghp\nh0xT5PWmGDG+4hN8VbS6N++T/Pmoe368GTaA5OQKRdDW84nNehIYlk1njCgN2ZZb\nf+YY2W8USsaEWQhGuqihF3Lm1nwzpxFBetBlsIA1axz07N9wQAe8SWp8RFYBCSDn\n/Kuq3nvnNPIRv+ALU+X8M/AVP0y0HxaVACejznI8VkmyESbaKU+v+M5ASnETsCMw\nl/m6lKdpwdyQA90jwjwGPtY2VXNP2Y+600Wh31YJErI8/8XKbx/kgDRG/wl1qXJa\n9aRbx4fXAgMBAAECggEAIzE4oNhStyVsr4pdn15VPeMe7hzpg3yNVH3qZs6mCme7\nTEDcNNammSNcKeRYlWC9JRe2b835j8ZiLSQStOEzzk44aLjmAY1kfKY/RLruyAwM\nEsExovYYzVhJIGUfHFRDbQzUyTFnXV2yh2DBVoX3PPHVR8ZHwfsnp3r3pR388EqN\nPESXMavvXA3ciXdplszrQcFii5t7xHMD/FW6u56a1PJfuCj1mysG4XYSpkJXKfDx\n1r/87FF5kOcSPpEUVypSlKXtB2cIdMRVDLA/+nKc/QfVnzOMwZcTcHiV4RfIK0PL\nKauSbLE7XT7qmyPtOJzAds81fiORvUIrGaqmIiPYCQKBgQDnUTk/dpgBLkes5KfD\nK2ID2SYygKV/u/S6RpvNnOyTQdOUiTM3KLa+mAme4G+6L2N1BiXOf1KVDquTuZ0f\nj0vSNjqK8bsZ1nXk44TE32ojpBfi6NdksP+KyCatyOw4FqYwnu6vCS6Xhnj9TWa4\ntD1/D4pMdzQb4xKJ3h38cTb5uQKBgQDIaIQlr8n/A1XLti8exvZlHbmy/kh4liBH\n+KWjIAm3xcRSrcpmkt2XsttK/7UkjBt7Ii1gbClWPc3cvXbQbOQHFCtPc1dV9PFy\nJdq+Nq2gXwIcALHDOfje26AYZO+QAMqktwmzUtxhKFEhM69awuGPO7yqXrNNofKQ\n0OeJ6WEWDwKBgHMHUx6aDPDZYM87TamiUzVysKoAi0w/3W0cW7IdzQ9Vdq+wooVV\ne7q/xFj7ZtQBaMXy7q4HZru09eGaNeZRzfSU/vvFRbONkEboVUfJifB7U12FSEdM\nNWeALKvS9JTXvoEDJ9JnEIJNXrEn4mMLTmF3CuEHjiQoAToJ+INmkV4RAoGBAKVC\noq5dLqpO+sH44xRzJ54sjASRcfuWeNpArX4+HiVgPUucqoo5U+gTgohvItYXf1Xj\n0h1wNAo8/vSnfEHVeZhoxmpHB98HFM93bdFrT3QuxJOI8w21UYec/oD/QxmxvWlk\n0ugATWEFGRnTAChNCinOLf8kBqHfCSLoUfbE7917AoGAEGWpOm9J8JC45gd3K0Kj\nqhk2s6MgM+Ru9p1LK9L+V3hW2+yIDRgVRdJY7mmgIP1uG9JMAHomP1VoqqM018Bt\nqIocJX+JmaghpR+e6pbl7GlENw08l5f7YEP4Lm6R6RprPpogCwMnJG1XptATHOnZ\nd4hOzsRIupHXY4tdLgJmyd4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheetaccess@aiprojectdatabase-433803.iam.gserviceaccount.com",
+  "client_id": "104019459891593823430",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheetaccess%40aiprojectdatabase-433803.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+
+
     # Provide the path to your service account key
-    creds = Credentials.from_service_account_file("secrect/aidb_access.json", scopes=scope)
+    creds = Credentials.from_service_account_info(CRE_dict, scopes=scope)
 
     # Authorize the client
     client = gspread.authorize(creds)
