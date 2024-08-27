@@ -139,9 +139,43 @@ image_file = st.file_uploader("Upload Your Selfie to Color Check", type=["jpg", 
 st.markdown("<h6 style='text-align: center;'>Disclaimer: We do not store personal data and your picture only valid in this particular instance</h6>", unsafe_allow_html=True)
 
 if image_file is not None:
+  
 
-    userskintype = st.selectbox("Select your skin type", options=("---","Oily","Dry","Sensitive","Combination"))
-    print(userskintype)
+    if 'show_help' not in st.session_state:
+        st.session_state.show_help = False
+    col1, col2 = st.columns([1, 1])
+
+    #if not st.session_state.show_help:
+    with col1:
+        userskintype = st.selectbox("Select your skin type", options=("---","Oily","Dry","Sensitive","Combination"))
+        print(userskintype)
+
+    with col2:
+        if st.button('Need Help with Your Skin Type ?'):
+            st.session_state.show_help = not st.session_state.show_help
+
+    if st.session_state.show_help:
+        st.markdown("<h1 style='text-align: center;'>What is Your Skin Type ?</h1>", unsafe_allow_html=True)
+        st.subheader("Oily Skin")
+        st.markdown("""Oily skin is a skin type characterized by excess production of sebum, the natural oil produced by sebaceous glands in the skin. This excess oil can lead to a shiny or greasy appearance, enlarged pores, and an increased likelihood of acne and blackheads. People with oily skin often need to use specific skincare products to manage oil production and keep their skin balanced.""")
+        st.image("pic/OilySkin2.jpg","Oily Skin Sample")
+
+        st.subheader("Dry Skin")
+        st.markdown("""Dry skin is a skin type characterized by a lack of moisture in the outer layer of the skin. This can lead to a rough, flaky, or scaly texture, a tight or uncomfortable feeling, and sometimes itching or irritation. Dry skin can be caused by environmental factors like cold weather, low humidity, or harsh soaps, as well as by underlying health conditions or aging. People with dry skin typically need to use moisturizing products to help restore and maintain hydration.""")
+        st.image("pic/DrySkin.jpg","Dry Skin Sample")
+
+        st.subheader("Sensitive Skin")
+        st.markdown("""Sensitive skin is a skin type that reacts easily to various products, environmental factors, or even touch. It can become red, itchy, or irritated when exposed to things like harsh chemicals, fragrances, or extreme temperatures. People with sensitive skin need to be careful with the products they use to avoid triggering these reactions.""")
+        st.image("pic/SenSkin.jpg","Sensitive Skin Sample")
+
+        st.subheader("Combination Skin")
+        st.markdown("""Combination skin is characterized by having different skin types in various areas of the face. Typically, the T-zone, which includes the forehead, nose, and chin, is oilier and may have larger pores. This area often experiences excess shine, blackheads, or acne due to the increased oil production. In contrast, the cheeks and sometimes other parts of the face, like the jawline or around the eyes, may be drier or normal. These areas can feel tight, flaky, or less oily. Managing combination skin often requires using different products or skincare routines for each area: a mattifying treatment for the oily T-zone and a hydrating product for the drier regions.""")
+        st.image("pic/CombineSkin1.jpg","Combination Skin Sample")
+        
+        # Show close help button
+        if st.button('Close Help'):
+            st.session_state.show_help = False
+
 
     if userskintype != "---":
 
