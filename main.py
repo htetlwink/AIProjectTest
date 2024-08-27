@@ -6,6 +6,27 @@ from sklearn.ensemble import RandomForestClassifier
 import cv2
 import tempfile
 import os
+import gspread
+from google.oauth2.service_account import Credentials
+
+def db_access(Skin_Type,Skin_Col):
+    # Define the scope
+    scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+
+    # Provide the path to your service account key
+    creds = Credentials.from_service_account_file("secrect/aidb_access.json", scopes=scope)
+
+    # Authorize the client
+    client = gspread.authorize(creds)
+
+    # Open the Google Sheet
+    sheet = client.open("database").sheet1  # Use .worksheet('sheet_name') for specific sheets
+
+    # Update a specific cell
+    sheet.update_cell(2,1,Skin_Type)
+    print("Skin Type Import to DB")
+    sheet.update_cell(2,2,Skin_Col)
+    print("Skin Color Import to DB")
 
 
 def get_skin_color_from_face(image_path):
@@ -177,6 +198,9 @@ if image_file is not None:
 
                 #Save the predict Color
                 ColorPredit = CoreColor_Suggest[prediction][0]
+
+                #Import Data into sheet
+                db_access(userskintype, ColorPredit)
                 
             except ValueError as e:
                 st.error(str(e))
