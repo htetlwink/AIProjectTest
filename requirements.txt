@@ -6,3 +6,4 @@ protobuf==5.28.0
 scikit_learn==1.5.1
 streamlit==1.36.0
 streamlit_option_menu==0.3.13
+
