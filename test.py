@@ -9,24 +9,72 @@ import os
 import gspread
 from google.oauth2.service_account import Credentials
 
-def db_access(Skin_Type,Skin_Col):
+CRE_dict = {
+  "type": "service_account",
+  "project_id": "aiprojectdatabase-433803",
+  "private_key_id": "24a66978b0cf51999f68af9c3604d867374754ef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1FeUgxYf5VGfG\nLJWd7r8h8hZbB0dU8+gFnN224NUUATM0JuHQcPL2Ci0wcMTZ3gWavBqP5vFpoghp\nh0xT5PWmGDG+4hN8VbS6N++T/Pmoe368GTaA5OQKRdDW84nNehIYlk1njCgN2ZZb\nf+YY2W8USsaEWQhGuqihF3Lm1nwzpxFBetBlsIA1axz07N9wQAe8SWp8RFYBCSDn\n/Kuq3nvnNPIRv+ALU+X8M/AVP0y0HxaVACejznI8VkmyESbaKU+v+M5ASnETsCMw\nl/m6lKdpwdyQA90jwjwGPtY2VXNP2Y+600Wh31YJErI8/8XKbx/kgDRG/wl1qXJa\n9aRbx4fXAgMBAAECggEAIzE4oNhStyVsr4pdn15VPeMe7hzpg3yNVH3qZs6mCme7\nTEDcNNammSNcKeRYlWC9JRe2b835j8ZiLSQStOEzzk44aLjmAY1kfKY/RLruyAwM\nEsExovYYzVhJIGUfHFRDbQzUyTFnXV2yh2DBVoX3PPHVR8ZHwfsnp3r3pR388EqN\nPESXMavvXA3ciXdplszrQcFii5t7xHMD/FW6u56a1PJfuCj1mysG4XYSpkJXKfDx\n1r/87FF5kOcSPpEUVypSlKXtB2cIdMRVDLA/+nKc/QfVnzOMwZcTcHiV4RfIK0PL\nKauSbLE7XT7qmyPtOJzAds81fiORvUIrGaqmIiPYCQKBgQDnUTk/dpgBLkes5KfD\nK2ID2SYygKV/u/S6RpvNnOyTQdOUiTM3KLa+mAme4G+6L2N1BiXOf1KVDquTuZ0f\nj0vSNjqK8bsZ1nXk44TE32ojpBfi6NdksP+KyCatyOw4FqYwnu6vCS6Xhnj9TWa4\ntD1/D4pMdzQb4xKJ3h38cTb5uQKBgQDIaIQlr8n/A1XLti8exvZlHbmy/kh4liBH\n+KWjIAm3xcRSrcpmkt2XsttK/7UkjBt7Ii1gbClWPc3cvXbQbOQHFCtPc1dV9PFy\nJdq+Nq2gXwIcALHDOfje26AYZO+QAMqktwmzUtxhKFEhM69awuGPO7yqXrNNofKQ\n0OeJ6WEWDwKBgHMHUx6aDPDZYM87TamiUzVysKoAi0w/3W0cW7IdzQ9Vdq+wooVV\ne7q/xFj7ZtQBaMXy7q4HZru09eGaNeZRzfSU/vvFRbONkEboVUfJifB7U12FSEdM\nNWeALKvS9JTXvoEDJ9JnEIJNXrEn4mMLTmF3CuEHjiQoAToJ+INmkV4RAoGBAKVC\noq5dLqpO+sH44xRzJ54sjASRcfuWeNpArX4+HiVgPUucqoo5U+gTgohvItYXf1Xj\n0h1wNAo8/vSnfEHVeZhoxmpHB98HFM93bdFrT3QuxJOI8w21UYec/oD/QxmxvWlk\n0ugATWEFGRnTAChNCinOLf8kBqHfCSLoUfbE7917AoGAEGWpOm9J8JC45gd3K0Kj\nqhk2s6MgM+Ru9p1LK9L+V3hW2+yIDRgVRdJY7mmgIP1uG9JMAHomP1VoqqM018Bt\nqIocJX+JmaghpR+e6pbl7GlENw08l5f7YEP4Lm6R6RprPpogCwMnJG1XptATHOnZ\nd4hOzsRIupHXY4tdLgJmyd4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheetaccess@aiprojectdatabase-433803.iam.gserviceaccount.com",
+  "client_id": "104019459891593823430",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheetaccess%40aiprojectdatabase-433803.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+
+def db_access(Skin_Type,Skin_Col,CRE_dict):
     # Define the scope
     scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
 
     # Provide the path to your service account key
-    creds = Credentials.from_service_account_file("aidb_access.json", scopes=scope)
+    creds = Credentials.from_service_account_info(CRE_dict, scopes=scope)
 
     # Authorize the client
     client = gspread.authorize(creds)
 
     # Open the Google Sheet
-    sheet = client.open("database").sheet1  # Use .worksheet('sheet_name') for specific sheets
+    sheet = client.open("database").worksheet("SQL_test")  # Use .worksheet('sheet_name') for specific sheets
 
     # Update a specific cell
     sheet.update_cell(2,1,Skin_Type)
     print("Skin Type Import to DB")
     sheet.update_cell(2,2,Skin_Col)
     print("Skin Color Import to DB")
+
+def Foundation_Access(CRE_dict):
+    # Define the scope
+    scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+
+    # Provide the path to your service account key
+    creds = Credentials.from_service_account_info(CRE_dict, scopes=scope)
+
+    # Authorize the client
+    client = gspread.authorize(creds)
+
+    # Open the Google Sheet
+    sheet = client.open("database").worksheet("SQL_test")  # Use .worksheet('sheet_name') for specific sheets
+
+    # REad a specific cell
+    
+    #color_name = sheet.acell("Y4").value
+    #print(f"Color cell name is {color_name}")
+    #color_hex = sheet.acell("Y4").value
+    #print(f"Color Hex Value is {color_hex}")
+
+    #st.markdown("Foundation Suggestion Color")
+    #st.markdown(f"""<div style="background-color:{color_hex}; padding: 20px; border-radius: 5px;">
+    #<p style="color:white; text-align:center;">{color_name}</p></div>""", unsafe_allow_html=True)
+
+    Foundation_Color = sheet.get("Q4:Q")
+    Foundation_Hex = sheet.get("Y4:Y")
+    flattened_color_data = [item for sublist in Foundation_Color for item in sublist]
+    flattened_hex_data = [item for sublist in Foundation_Hex for item in sublist]
+    for i,j in zip(flattened_color_data,flattened_hex_data):
+        print(i)
+        print(j)
+        st.markdown(f"""<div style="background-color:{j}; padding: 20px; border-radius: 5px;">
+        <p style="color:white; text-align:center;">{i}</p></div>""", unsafe_allow_html=True)    
 
 def get_skin_color_from_face(image_path):
     # Load the image
@@ -123,9 +171,43 @@ image_file = st.file_uploader("Upload Your Selfie to Color Check", type=["jpg", 
 st.markdown("<h6 style='text-align: center;'>Disclaimer: We do not store personal data and your picture only valid in this particular instance</h6>", unsafe_allow_html=True)
 
 if image_file is not None:
+  
 
-    userskintype = st.selectbox("Select your skin type", options=("---","Oily","Dry","Sensitive","Combination"))
-    print(userskintype)
+    if 'show_help' not in st.session_state:
+        st.session_state.show_help = False
+    col1, col2 = st.columns([1, 1])
+
+    #if not st.session_state.show_help:
+    with col1:
+        userskintype = st.selectbox("Select your skin type", options=("---","Oily","Dry","Sensitive","Combination"))
+        print(userskintype)
+
+    with col2:
+        if st.button('Need Help with Your Skin Type ?'):
+            st.session_state.show_help = not st.session_state.show_help
+
+    if st.session_state.show_help:
+        st.markdown("<h1 style='text-align: center;'>What is Your Skin Type ?</h1>", unsafe_allow_html=True)
+        st.subheader("Oily Skin")
+        st.markdown("""Oily skin is a skin type characterized by excess production of sebum, the natural oil produced by sebaceous glands in the skin. This excess oil can lead to a shiny or greasy appearance, enlarged pores, and an increased likelihood of acne and blackheads. People with oily skin often need to use specific skincare products to manage oil production and keep their skin balanced.""")
+        st.image("pic/OilySkin2.jpg","Oily Skin Sample")
+
+        st.subheader("Dry Skin")
+        st.markdown("""Dry skin is a skin type characterized by a lack of moisture in the outer layer of the skin. This can lead to a rough, flaky, or scaly texture, a tight or uncomfortable feeling, and sometimes itching or irritation. Dry skin can be caused by environmental factors like cold weather, low humidity, or harsh soaps, as well as by underlying health conditions or aging. People with dry skin typically need to use moisturizing products to help restore and maintain hydration.""")
+        st.image("pic/DrySkin.jpg","Dry Skin Sample")
+
+        st.subheader("Sensitive Skin")
+        st.markdown("""Sensitive skin is a skin type that reacts easily to various products, environmental factors, or even touch. It can become red, itchy, or irritated when exposed to things like harsh chemicals, fragrances, or extreme temperatures. People with sensitive skin need to be careful with the products they use to avoid triggering these reactions.""")
+        st.image("pic/SenSkin.jpg","Sensitive Skin Sample")
+
+        st.subheader("Combination Skin")
+        st.markdown("""Combination skin is characterized by having different skin types in various areas of the face. Typically, the T-zone, which includes the forehead, nose, and chin, is oilier and may have larger pores. This area often experiences excess shine, blackheads, or acne due to the increased oil production. In contrast, the cheeks and sometimes other parts of the face, like the jawline or around the eyes, may be drier or normal. These areas can feel tight, flaky, or less oily. Managing combination skin often requires using different products or skincare routines for each area: a mattifying treatment for the oily T-zone and a hydrating product for the drier regions.""")
+        st.image("pic/CombineSkin1.jpg","Combination Skin Sample")
+        
+        # Show close help button
+        if st.button('Close Help'):
+            st.session_state.show_help = False
+
 
     if userskintype != "---":
 
@@ -194,12 +276,16 @@ if image_file is not None:
                 st.subheader('You Should Use This MakeUp Color')
                 CoreColor_Suggest = np.array(['Pale','Natural','Golden','Mocha'])
                 st.write(CoreColor_Suggest[prediction][0])
-                final_suggest = CoreColor_Suggest[prediction][0]
-                print(type(CoreColor_Suggest[prediction]))
-                print(type(CoreColor_Suggest[prediction][0]))
 
-                db_access(userskintype, final_suggest)
+                #Save the predict Color
+                ColorPredit = CoreColor_Suggest[prediction][0]
 
+                #Import Data into sheet
+                db_access(userskintype, ColorPredit,CRE_dict)
+
+                #Display Foundation Color Suggestion
+                Foundation_Access(CRE_dict)
+                
             except ValueError as e:
                 st.error(str(e))
             finally:
