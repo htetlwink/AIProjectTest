@@ -10,6 +10,8 @@ import os
 import gspread
 from google.oauth2.service_account import Credentials
 
+st.set_page_config(page_title="Makeup Foundation Assistant",page_icon="💋")
+
 CRE_dict = {
   "type": "service_account",
   "project_id": "aiprojectdatabase-433803",
@@ -154,7 +156,7 @@ def user_input_features(r,g,b,SkinType):
 
 with st.sidebar:
     selected = option_menu(
-        menu_title="Skin Color Tester",
+        menu_title="Makeup Foundation Assistant",
         options=["Home","Skin Type","How it's work?"],
         icons=["house","book","lightbulb"],
         menu_icon="emoji-smile",
