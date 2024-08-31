@@ -69,8 +69,8 @@ def Foundation_Access(CRE_dict):
     #st.markdown(f"""<div style="background-color:{color_hex}; padding: 20px; border-radius: 5px;">
     #<p style="color:white; text-align:center;">{color_name}</p></div>""", unsafe_allow_html=True)
 
-    Foundation_Color = sheet.get("Q4:Q")
-    Foundation_Hex = sheet.get("Y4:Y")
+    Foundation_Color = sheet.get("Q4:Q6")
+    Foundation_Hex = sheet.get("Y4:Y6")
     flattened_color_data = [item for sublist in Foundation_Color for item in sublist]
     flattened_hex_data = [item for sublist in Foundation_Hex for item in sublist]
     for i,j in zip(flattened_color_data,flattened_hex_data):
@@ -311,17 +311,20 @@ if selected == "Home":
 
                     if ColorPredit == "Pale":
                         st.markdown(f"""<div style="background-color:#FAF9DE; padding: 20px; border-radius: 5px;">
-                    <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
+                    <p style="color:white; text-align:center;">Pale</p></div>""", unsafe_allow_html=True)
                     if ColorPredit == "Natural":
-                        st.markdown(f"""<div style="background-color:#AA907D; padding: 20px; border-radius: 5px;">
-                    <p style="color:white; text-align:center;"></p></div>""", unsafe_allow_html=True)
+                        st.markdown(f"""<div style="background-color:#F1ECE8; padding: 20px; border-radius: 5px;">
+                    <p style="color:white; text-align:center;"></p>Natural</div>""", unsafe_allow_html=True)
                     if ColorPredit == "Golden":
                         st.markdown(f"""<div style="background-color:#FFD700; padding: 20px; border-radius: 5px;">
-                    <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
+                    <p style="color:white; text-align:center;">Golden</p></div>""", unsafe_allow_html=True)
                     if ColorPredit == "Mocha":
                         st.markdown(f"""<div style="background-color:#6D3B07; padding: 20px; border-radius: 5px;">
-                    <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
-            
+                    <p style="color:white; text-align:center;">Mocha</p></div>""", unsafe_allow_html=True)
+                    
+                    st.markdown("---")
+                    st.markdown("---")
+                    st.markdown("Our suggested eye shadow base color...")
 
                     #Import Data into sheet
                     db_access(userskintype, ColorPredit,CRE_dict)
