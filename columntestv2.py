@@ -323,14 +323,14 @@ if selected == "Home":
                     <p style="color:white; text-align:center;">Mocha</p></div>""", unsafe_allow_html=True)
                     
                     st.markdown("---")
-                    st.markdown("---")
-                    st.markdown("Our suggested eye shadow base color...")
+                    #st.markdown("---")
+                    #st.markdown("Our suggested eye shadow base color...")
 
                     #Import Data into sheet
-                    db_access(userskintype, ColorPredit,CRE_dict)
+                    #db_access(userskintype, ColorPredit,CRE_dict)
 
                     #Display Foundation Color Suggestion
-                    Foundation_Access(CRE_dict)
+                    #Foundation_Access(CRE_dict)
                     
                 except ValueError as e:
                     st.error(str(e))
