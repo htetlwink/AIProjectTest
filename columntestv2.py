@@ -10,7 +10,7 @@ import os
 import gspread
 from google.oauth2.service_account import Credentials
 
-st.set_page_config(page_title="Makeup Foundation Assistant",page_icon="💋")
+st.set_page_config(page_title="AI Makeup Foundation Assistant",page_icon="💋")
 
 CRE_dict = {
   "type": "service_account",
@@ -156,7 +156,7 @@ def user_input_features(r,g,b,SkinType):
 
 with st.sidebar:
     selected = option_menu(
-        menu_title="Makeup Foundation Assistant",
+        menu_title="AI Makeup Foundation Assistant",
         options=["Home","Skin Type","How it's work?"],
         icons=["house","book","lightbulb"],
         menu_icon="emoji-smile",
@@ -166,12 +166,12 @@ with st.sidebar:
 
 if selected == "Home":
     #st.title(f"You have selected {selected}")
-    st.markdown("<h1 style='text-align: center;'>Makeup Foundation Assistant</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>AI Makeup Foundation Assistant</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>Ensure the face is well-lit by natural light with no shadows.</h6>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>Use a clear background for best results.</h6>", unsafe_allow_html=True)
     st.markdown("---")
     st.markdown(f"""<div style="background-color:#42f5cb; padding: 5px; border-radius: 1px;">
-            <p style="color:black; text-align:center;">Please ensure the photo is less than 2MB to avoid service issues.</p></div>""", unsafe_allow_html=True)
+            <p style="color:black; text-align:center;">Please ensure your photo is less than 2MB to avoid service issues.</p></div>""", unsafe_allow_html=True)
     st.markdown("---")
     
     image_file = st.file_uploader("Upload Your Selfie to Color Check", type=["jpg", "png", "jpeg"])
@@ -300,12 +300,28 @@ if selected == "Home":
                     #Model Prediction
                     prediction = load_clf.predict(df)
 
-                    st.subheader('You Should Use This MakeUp Color')
+                    st.subheader('Prediction...')
                     CoreColor_Suggest = np.array(['Pale','Natural','Golden','Mocha'])
-                    st.write(CoreColor_Suggest[prediction][0])
+                    #st.write(CoreColor_Suggest[prediction][0])
+                    
+                    st.markdown(F"<h6 style='text-align: center;'>{CoreColor_Suggest[prediction][0]} is the best foundation makeup color for you !!!</h6>", unsafe_allow_html=True)
 
                     #Save the predict Color
                     ColorPredit = CoreColor_Suggest[prediction][0]
+
+                    if ColorPredit == "Pale":
+                        st.markdown(f"""<div style="background-color:#FAF9DE; padding: 20px; border-radius: 5px;">
+                    <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
+                    if ColorPredit == "Natural":
+                        st.markdown(f"""<div style="background-color:#AA907D; padding: 20px; border-radius: 5px;">
+                    <p style="color:white; text-align:center;"></p></div>""", unsafe_allow_html=True)
+                    if ColorPredit == "Golden":
+                        st.markdown(f"""<div style="background-color:#FFD700; padding: 20px; border-radius: 5px;">
+                    <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
+                    if ColorPredit == "Mocha":
+                        st.markdown(f"""<div style="background-color:#6D3B07; padding: 20px; border-radius: 5px;">
+                    <p style="color:white; text-align:center;">{skin_hex}</p></div>""", unsafe_allow_html=True)
+            
 
                     #Import Data into sheet
                     db_access(userskintype, ColorPredit,CRE_dict)
@@ -343,34 +359,5 @@ if selected == "Skin Type":
 
 
 if selected == "How it's work?":
-    
-    #st.title(f"You have selected {selected}")
-    #skin_hex, image_rgb, face_rect, face_region, skin_mask, skin_region, rgbcolor = get_skin_color_from_face(temp_file_path)
-    if 'image_rgb' in st.session_state:
-        st.image(st.session_state.image_rgb, caption="Original Image")
-        st.markdown("---")
 
-        x, y, w, h = st.session_state.face_rect
-        cv2.rectangle(st.session_state.image_rgb, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        st.image(st.session_state.image_rgb, caption="Detected Face")
-        st.markdown("---")
-
-        st.image(st.session_state.face_region, caption="Face Region")
-        st.markdown("---")
-
-        st.image(st.session_state.skin_mask, caption="Skin Mask")
-        st.markdown("---")
-
-        st.image(st.session_state.skin_region, caption="Skin Region")
-        st.markdown("---")
-
-        st.markdown(f"""<div style="background-color:{st.session_state.skin_hex}; padding: 20px; border-radius: 5px;">
-        <p style="color:white; text-align:center;">{st.session_state.skin_hex}</p></div>""", unsafe_allow_html=True)
-        st.markdown(f"""<div style="background-color:{st.session_state.skin_hex}; padding: 20px; border-radius: 5px;">
-        <p style="color:white; text-align:center;">R:{st.session_state.rgbcolor[0]}, G:{st.session_state.rgbcolor[1]}, B:{st.session_state.rgbcolor[2]}</p></div>""", unsafe_allow_html=True)
-
-        clearbtm = st.button("Clear Data")
-        if clearbtm:
-            st.session_state.imagefile = None
-    else:
-        st.warning("Please perform an analysis first.")
+    st.markdown("This will be our github and contact.")
