@@ -252,7 +252,7 @@ if selected == "Home":
                     #st.session_state.skin_hex = skin_hex
                     #st.session_state.rgbcolor = rgbcolor
                     
-                    with st.expander("Wanna see how your photo process ?",icon="🔎"):
+                    with st.expander("Wanna see how your photo process ?",icon="🕵️"):
                         st.markdown("<h6 style='text-align: center;'>This is your Original Photo.</h6>", unsafe_allow_html=True)
                         st.image(image_rgb, caption="Original Image")
                         st.markdown("---")
